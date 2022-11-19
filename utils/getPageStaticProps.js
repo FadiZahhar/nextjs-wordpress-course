@@ -15,48 +15,10 @@ export const getPageStaticProps = async (context) => {
             id
             title
             blocksJSON
-            featuredImage {
-              node {
-                sourceUrl
-              }
-            }
-            seo {
-              title
-              metaDesc
-            }
-          }
-          ... on Property {
-            id
-            title
-            blocksJSON
-            seo {
-              title
-              metaDesc
-            }
-            propertyFeatures {
-              bathrooms
-              bedrooms
-              hasParking
-              petFriendly
-              price
-            }
-            featuredImage {
-              node {
-                sourceUrl
-              }
-            }
           }
         }
         acfOptionsMainMenu {
           mainMenu {
-            callToActionButton {
-              label
-              destination {
-                ... on Page {
-                  uri
-                }
-              }
-            }
             menuItems {
               menuItem {
                 destination {
@@ -86,17 +48,12 @@ export const getPageStaticProps = async (context) => {
   const blocks = await cleanAndTransformBlocks(data.nodeByUri.blocksJSON);
   return {
     props: {
-      seo: data.nodeByUri.seo,
       title: data.nodeByUri.title,
       propertyFeatures: data.nodeByUri.propertyFeatures || null,
       featuredImage: data.nodeByUri.featuredImage?.node?.sourceUrl || null,
       mainMenuItems: mapMainMenuItems(
         data.acfOptionsMainMenu.mainMenu.menuItems
       ),
-      callToActionLabel:
-        data.acfOptionsMainMenu.mainMenu.callToActionButton.label,
-      callToActionDestination:
-        data.acfOptionsMainMenu.mainMenu.callToActionButton.destination.uri,
       blocks,
     },
   };

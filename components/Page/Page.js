@@ -14,13 +14,13 @@ export const Page = (props) => {
       }}
     >
       <Head>
-        <title>{props.seo.title}</title>
-        <meta name="description" content={props.seo.metaDesc} />
+        <title>title not dynamic yet</title>
+        <meta name="description" content="not dyanmic yet" />
       </Head>
       <MainMenu
         items={props.mainMenuItems}
-        callToActionDestination={props.callToActionDestination}
-        callToActionLabel={props.callToActionLabel}
+        callToActionDestination="https://www.google.com"
+        callToActionLabel="demo label not dynamic"
       />
       <BlockRenderer blocks={props.blocks} />
     </PageWrapper>
