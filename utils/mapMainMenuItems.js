@@ -9,6 +9,11 @@ export const mapMainMenuItems = (menuItems) => {
       id: uuid(),
       destination: subMenuItem.destination?.uri,
       label: subMenuItem.label,
+      subMenuItems: (menuItem.items || []).map((subMenuItem) => ({
+        id: uuid(),
+        destination: subMenuItem.destination?.uri,
+        label: subMenuItem.label,
+      }))
     })),
   }));
 };
