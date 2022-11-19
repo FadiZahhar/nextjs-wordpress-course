@@ -19,8 +19,8 @@ export const Page = (props) => {
       </Head>
       <MainMenu
         items={props.mainMenuItems}
-        callToActionDestination="https://www.google.com"
-        callToActionLabel="demo label not dynamic"
+        callToActionDestination={props.callToActionDestination}
+        callToActionLabel={props.callToActionLabel}
       />
       <BlockRenderer blocks={props.blocks} />
     </PageWrapper>
